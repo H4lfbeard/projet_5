@@ -40,7 +40,7 @@ class PostRepository
     public function getPosts(): array {
        
         $statement = $this->connection->getConnection()->query(
-            "SELECT id, title, content, hat, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS creation_date FROM article ORDER BY creation_date DESC LIMIT 0, 5"
+            "SELECT id, title, content, hat, DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') AS creation_date FROM article ORDER BY creation_date DESC LIMIT 0, 10"
         );
         $posts = [];
         while (($row = $statement->fetch())) {
