@@ -19,7 +19,7 @@ function deleteComment(string $identifier)
     $success = $commentRepository->deleteComment($identifier);
     if (!$success) {
         throw new Exception('Impossible de supprimer le commentaire !');
-    } else {
-        header('Location: index.php?action=post&id=' . $article_id . '#show_comments');
+        return;
     }
+    header('Location: index.php?action=post&id=' . $article_id . '#show_comments');
 }

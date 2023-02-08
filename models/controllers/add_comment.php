@@ -16,16 +16,16 @@ function addComment(string $post, array $input)
         $author = $input['author'];
         $author_id = $input['author_id'];
         $comment = $input['comment'];
-    } else {
-        throw new Exception('Les données du formulaire sont invalides.');
+        return;
     }
+    throw new Exception('Les données du formulaire sont invalides.');
 
     $commentRepository = new CommentRepository();
     $commentRepository->connection = new DatabaseConnection();
     $success = $commentRepository->createComment($post, $author, $comment, $author_id);
     if (!$success) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
-    } else {
-        header('Location: index.php?action=post&id=' . $post . '#show_comments');
+        return;
     }
+    header('Location: index.php?action=post&id=' . $post . '#show_comments');
 }

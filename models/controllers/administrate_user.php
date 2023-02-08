@@ -19,9 +19,9 @@ class PassAdmin
         $success = $userRepository->passAdmin($identifier);
         if (!$success) {
             throw new \Exception('Impossible passer le compte en compte Admin');
-        } else {
-            header('Location: index.php?action=admin#show_users');
+            return;
         }
+        header('Location: index.php?action=admin#show_users');
 
         require 'vues/update_comment.php';
     }
@@ -40,9 +40,9 @@ class PassUser
         $success = $userRepository->passUser($identifier);
         if (!$success) {
             throw new \Exception('Impossible passer le compte en compte User');
-        } else {
-            header('Location: index.php?action=admin#show_users');
+            return;
         }
+        header('Location: index.php?action=admin#show_users');
 
         require 'vues/update_comment.php';
     }

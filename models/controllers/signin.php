@@ -8,7 +8,6 @@ use Application\Models\User\UserRepository;
 
 function signin()
 {
-
     require 'vues/signin.php';
 }
 
@@ -24,9 +23,10 @@ function addUser(array $input)
             $pseudo = $input['pseudo'];
             $email = $input['email'];
             $password = $input['password'];
-        } else {
-            throw new Exception('Les données du formulaire sont invalides.');
+            return;
         }
+        throw new Exception('Les données du formulaire sont invalides.');
+
         if (($input["password"] === $input["password-confirm"])) {
             // Le formulaire est complet
             // On récupère les données en les protégeant
@@ -38,9 +38,9 @@ function addUser(array $input)
 
             //On va hasher le mot de passe
             $password = password_hash($input["password"], PASSWORD_ARGON2ID);
-        } else {
-            throw new Exception("Les deux mot de passe ne sont pas similaire");
+            return;
         }
+        throw new Exception("Les deux mot de passe ne sont pas similaire");
     }
 
     $userRepository = new UserRepository();
@@ -48,8 +48,7 @@ function addUser(array $input)
     $success = $userRepository->createUser($pseudo, $email, $password);
     if (!$success) {
         throw new Exception('Impossible de créer un nouveau compte !');
-    } else {
-        header('Location: index.php?');
+        return;
     }
-
+    header('Location: index.php?');
 }

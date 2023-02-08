@@ -19,18 +19,18 @@ class UpdateArticle
                 $title = $input['title'];
                 $hat = $input['hat'];
                 $content = $input['content'];
-            } else {
-                throw new \Exception('Les données du formulaire sont invalides.');
+                return;
             }
+            throw new \Exception('Les données du formulaire sont invalides.');
 
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();
             $success = $postRepository->updateArticle($title, $hat, $content, $identifier);
             if (!$success) {
                 throw new \Exception('Impossible de modifier l\'article !');
-            } else {
-                header('Location: index.php?action=post&id=' . $identifier);
+                return;
             }
+            header('Location: index.php?action=post&id=' . $identifier);
         }
 
         // Otherwise, it displays the form.

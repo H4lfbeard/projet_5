@@ -2,6 +2,5 @@
 
 function curriculum()
 {
-
     require 'vues/curriculum.php';
 }

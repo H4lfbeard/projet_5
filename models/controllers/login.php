@@ -24,10 +24,10 @@ function logUser(array $input)
             $password = $input["password"];
             if (!filter_var($input["email"], FILTER_VALIDATE_EMAIL)) {
                 throw new Exception("Ce n'est pas un email valide");
+                return;
             }
-        } else {
-            throw new Exception('Les informations sont trop invalides.');
         }
+        throw new Exception('Les informations sont trop invalides.');
     }
 
     $userRepository = new UserRepository();
@@ -35,8 +35,7 @@ function logUser(array $input)
     $success = $userRepository->loginUser($email, $password);
     if (!$success) {
         throw new Exception('Impossible se connecter à votre compte !');
-    } else {
-        header('Location: index.php?');
+        return;
     }
-
+    header('Location: index.php?');
 }

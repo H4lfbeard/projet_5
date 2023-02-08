@@ -18,9 +18,9 @@ class UpdateComment
             if (!empty($input['author']) && !empty($input['comment'])) {
                 $author = $input['author'];
                 $comment = $input['comment'];
-            } else {
-                throw new \Exception('Les données du formulaire sont invalides.');
+                return;
             }
+            throw new \Exception('Les données du formulaire sont invalides.');
 
             $commentRepository = new CommentRepository();
             $commentRepository->connection = new DatabaseConnection();
@@ -32,9 +32,9 @@ class UpdateComment
             $success = $commentRepository->updateComment($identifier, $author, $comment);
             if (!$success) {
                 throw new \Exception('Impossible de modifier le commentaire !');
-            } else {
-                header('Location: index.php?action=post&id=' . $article_id . '#show_comments');
+                return;
             }
+            header('Location: index.php?action=post&id=' . $article_id . '#show_comments');
         }
 
         // Otherwise, it displays the form.

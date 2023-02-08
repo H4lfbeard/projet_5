@@ -59,11 +59,11 @@ use PHPMailer\PHPMailer\SMTP;
 
          }catch(Exception){
             throw new Exception("Message non envoyé. Erreur: {$mail->ErrorInfo}");
+            return;
          }
 
-     } else {
+     } 
          error();
-     }
    }
 
 ?>
