@@ -18,7 +18,7 @@ function addComment(string $post, array $input)
 		$author_id = $input['author_id'];
     	$comment = $input['comment'];
 	} else {
-    	die('Les données du formulaire sont invalides.');
+    	throw new Exception('Les données du formulaire sont invalides.');
 	}
 
 	$commentRepository = new CommentRepository();

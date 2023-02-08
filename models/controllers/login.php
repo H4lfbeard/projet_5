@@ -22,10 +22,10 @@ function login() {
             $email = $input["email"];
             $password = $input["password"];
             if(!filter_var($input["email"], FILTER_VALIDATE_EMAIL)) {
-                die("Ce n'est pas un email valide");
+                throw new Exception("Ce n'est pas un email valide");
             }
         } else {
-            die('Les informations sont trop invalides.');
+            throw new Exception('Les informations sont trop invalides.');
         }
     }
   

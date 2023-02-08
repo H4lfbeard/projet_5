@@ -24,7 +24,7 @@ function submitArticle(array $input)
 		$hat = $input['hat'];
     	$content = $input['content'];
 	} else {
-    	die('Les informations de l\'article sont invalides.');
+    	throw new Exception('Les informations de l\'article sont invalides.');
 	}
 
 	$postRepository = new PostRepository();

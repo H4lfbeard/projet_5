@@ -26,7 +26,7 @@ function addUser(array $input)
             $password = $input['password'];
         }
         else {
-            die('Les données du formulaire sont invalides.');
+            throw new Exception('Les données du formulaire sont invalides.');
             }
         if(($input["password"] === $input["password-confirm"]))
         {
@@ -36,13 +36,13 @@ function addUser(array $input)
 
             if(!filter_var($input["email"], FILTER_VALIDATE_EMAIL))
                 {
-                die("l'adresse email est incorrecte");
+                    throw new Exception("l'adresse email est incorrecte");
                 }
 
             //On va hasher le mot de passe
             $password = password_hash($input["password"], PASSWORD_ARGON2ID);
         }else {
-            die("Les deux mot de passe ne sont pas similaire");
+            throw new Exception("Les deux mot de passe ne sont pas similaire");
         }
     }
   
