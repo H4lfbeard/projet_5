@@ -56,7 +56,6 @@ function confirmSubmit() {
 }
 </script>
 
-
 <?php
 require_once('vues/footer.php');
 ?>

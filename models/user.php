@@ -14,7 +14,7 @@ class User
 	public string $password;
 }
 
-class UserRepository 
+class UserRepository
 {
 	
 	public \DatabaseConnection $connection;

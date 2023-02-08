@@ -9,7 +9,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
    function contact() {
-
       require('vues/contact-vues.php');
    }
 
@@ -55,11 +54,11 @@ use PHPMailer\PHPMailer\SMTP;
             header('Location: index.php?');
 
          }catch(Exception){
-            echo"Message non envoyé. Erreur: {$mail->ErrorInfo}";
+            throw new Exception("Message non envoyé. Erreur: {$mail->ErrorInfo}");
          }
 
      } else {
-         die('Les informations de du formulaire de contact sont invalides.');
+         error();
      }
    }
 

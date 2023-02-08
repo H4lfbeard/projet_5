@@ -17,6 +17,8 @@ require_once('models/controllers/signin.php');
 require_once('models/controllers/add_article.php');
 require_once('models/controllers/update_article.php');
 require_once('models/controllers/delete_article.php');
+require_once('models/controllers/error.php');
+
 
 if (isset($_GET['action']) && $_GET['action'] !== '') {
 	if ($_GET['action'] === 'post') {
@@ -25,8 +27,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         	post($identifier);
     	}
 		else {
-        	echo 'Erreur : aucun identifiant de billet envoyé action';
-        	die;
+        	error();
     	}
 	} 
 
@@ -75,8 +76,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 			submitArticle($_POST);
     	}
 		else {
-        	echo 'Impossible d\'enregistrer l\'article';
-        	die;
+        	error();
     	}
 	}
 
@@ -100,8 +100,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         	deleteArticle($identifier);
     	}
 		else {
-        	echo 'Erreur : aucun identifiant de billet envoyé pour la suppression de l\'article';
-        	die;
+        	error();
     	}
 	}
 
@@ -114,8 +113,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         	addComment($identifier, array_merge($_POST, ['author_id' => $author_id]));
     	}
 		else {
-        	echo 'Erreur : aucun identifiant de billet envoyé addcomment';
-        	die;
+        	error();
     	}
 	}
 
@@ -148,8 +146,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         	deleteComment($identifier);
     	}
 		else {
-        	echo 'Erreur : aucun identifiant de billet envoyé pour la suppression du commentaire';
-        	die;
+        	error();
     	}
 	}
 
@@ -169,8 +166,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 			submitContactForm($_POST);
     	}
 		else {
-        	echo 'Impossible d\'envoyer votre formulaire de contact';
-        	die;
+        	error();
     	}
 	}
 
@@ -193,7 +189,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 			addUser($_POST);
     	}
 		else {
-        	echo 'Marche pas';
+        	error();
         	die;
     	}
 	}
@@ -203,13 +199,13 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 			logUser($_POST);
     	}
 		else {
-        	echo 'Ne peux pas vous connecter';
+        	error();
         	die;
     	}
 	}
 
     else {
-    	echo "Erreur 404 : la page que vous recherchez n'existe pas du tout.";
+    	error();
 	}
 	
 	

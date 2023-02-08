@@ -1,5 +1,5 @@
 <?php
-// models/controllers/login.php
+// Models/controllers/login.php
 
 require_once('lib/database.php');
 require_once('models/user.php');
@@ -15,7 +15,7 @@ function login() {
 {
 	$email = null;
     $password = null;
-    if(!empty($input)){
+    if (!empty($input)){
         // Le formulaire à été envoyé
         // On vérifie que TOUS les champs requis soient remplis
         if (isset($input["email"], $input["password"]) && !empty($input['email']) && !empty($input['password'])) {
