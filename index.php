@@ -23,6 +23,7 @@ $globals = new Globals;
 
 $get = $globals->getGET();
 $post = $globals->getPOST();
+$server = $globals->getSERVER();
 
 if (isset($get['action']) && $get['action'] !== '') {
     if ($get['action'] === 'post') {
@@ -77,7 +78,7 @@ if (isset($get['action']) && $get['action'] !== '') {
             $identifier = $get['id'];
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).
             $input = null;
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($server['REQUEST_METHOD'] === 'POST') {
                 $input = $post;
             }
             (new UpdateArticle())->execute($identifier, $input);
@@ -108,7 +109,7 @@ if (isset($get['action']) && $get['action'] !== '') {
             $identifier = $get['id'];
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).
             $input = null;
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($server['REQUEST_METHOD'] === 'POST') {
                 $input = $post;
             }
             (new UpdateComment())->execute($identifier, $input);

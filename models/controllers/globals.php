@@ -4,11 +4,13 @@ class Globals
 {
     private $GET;
     private $POST;
+    private $SESSION;
 
     public function __construct()
     {
         $this->GET = filter_input_array(INPUT_GET);
         $this->POST = filter_input_array(INPUT_POST);
+        $this->SERVER = filter_input_array(INPUT_SERVER);
     }
 
     public function getGET()
@@ -19,6 +21,11 @@ class Globals
     public function getPOST()
     {
         return $this->POST;
+    }
+
+    public function getSERVER()
+    {
+        return $this->SERVER;
     }
 
 }
