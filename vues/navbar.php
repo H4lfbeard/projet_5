@@ -22,26 +22,3 @@
                 </div>
             </div>
         </nav>
-
-
-<!-- Ancienne navbar -->
-<!--<body>
-<header class="container">
-   <ul class="row">
-      <li class="col">
-         <a href="#">Accueil</a>
-      </li>
-      <li class="col">
-         <a href="#">Articles</a>
-      </li>
-      <li class="col">
-         <a href="#">Curriculum Vitae</a>
-      </li>
-      <li class="col">
-         <a href="#">Contact</a>
-      </li>
-      <li class="col">
-         <a href="#">Se connecter / s'incrire</a>
-      </li>
-   </ul>
-</header>-->
