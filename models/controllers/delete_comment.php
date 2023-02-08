@@ -1,11 +1,10 @@
 <?php
 // models/controllers/add_comment.php
 
-require_once('lib/database.php');
-require_once('models/article.php');
-require_once('models/comment.php');
+require_once 'lib/database.php';
+require_once 'models/article.php';
+require_once 'models/comment.php';
 
-use Application\Models\Article\PostRepository;
 use Application\Models\Comment\CommentRepository;
 
 function deleteComment(string $identifier)
@@ -15,7 +14,7 @@ function deleteComment(string $identifier)
     $identifiant = $commentRepository->getComment($identifier);
     $article_id = $identifiant->post;
 
-	$commentRepository = new CommentRepository();
+    $commentRepository = new CommentRepository();
     $commentRepository->connection = new DatabaseConnection();
     $success = $commentRepository->deleteComment($identifier);
     if (!$success) {

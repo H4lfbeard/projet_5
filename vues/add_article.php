@@ -1,8 +1,7 @@
 <?php
-   require_once('vues/head.php');
-   require_once('vues/navbar.php');
+require_once 'vues/head.php';
+require_once 'vues/navbar.php';
 ?>
-
 <!-- Page Header-->
 <header class="masthead" style="background-image: url('assets/img/add-article.jpg')">
     <div class="container position-relative px-4 px-lg-5">
@@ -34,7 +33,7 @@
                         </div>
                         <div class="form-floating">
                             <textarea class="form-control" id="content" name="content" style="height: 12rem" ></textarea>
-                            <label for="content">Contenu de l'article</label>     
+                            <label for="content">Contenu de l'article</label>
                         </div>
                         <br />
                         <div ><input type="submit" value="Enregistrer l'article" class="btn btn-primary text-uppercase" id="submitButton" /></div>
@@ -46,5 +45,5 @@
 </main>
 
 <?php
-require_once('vues/footer.php');
+require_once 'vues/footer.php';
 ?>

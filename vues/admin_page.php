@@ -1,6 +1,6 @@
 <?php
-   require_once('vues/head.php');
-   require_once('vues/navbar.php');
+require_once 'vues/head.php';
+require_once 'vues/navbar.php';
 ?>
 
 <!-- Page Header-->
@@ -29,20 +29,20 @@
 </div>
 
 <?php
-    foreach ($comments as $comment) {
-?>
+foreach ($comments as $comment) {
+    ?>
 
 <article class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p><?= htmlspecialchars($comment->comment) ?></p>
+                <p><?=htmlspecialchars($comment->comment)?></p>
                 <span class="meta">
-                    Posted by <a href="#"><strong><?= htmlspecialchars($comment->author) ?></strong></a></br>
-                    le <?= $comment->CreationDate ?></br>
+                    Posted by <a href="#"><strong><?=htmlspecialchars($comment->author)?></strong></a></br>
+                    le <?=$comment->CreationDate?></br>
                 </span>
-                <strong style="color:#fff;"><a href="index.php?action=submitComment&id=<?= $comment->identifier ?>">Valider</a></strong> | 
-                <strong><a href="#" onclick="return confirmDelete(<?= $comment->identifier ?>)">Supprimer</a></strong>
+                <strong style="color:#fff;"><a href="index.php?action=submitComment&id=<?=$comment->identifier?>">Valider</a></strong> |
+                <strong><a href="#" onclick="return confirmDelete(<?=$comment->identifier?>)">Supprimer</a></strong>
                 <hr class="my-4" />
             </div>
         </div>
@@ -50,7 +50,7 @@
 </article>
 
 <?php
-    }
+}
 ?>
 
 <!-- AFFICHAGE DES USERS PRESENT EN BDD -->
@@ -66,16 +66,16 @@
 </div>
 
 <?php
-    foreach ($users as $user) {
-?>
+foreach ($users as $user) {
+    ?>
 
 <article class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p><?= htmlspecialchars($user->pseudo) ?> | <?= htmlspecialchars($user->user_role) ?></p>
-                <strong><a href="index.php?action=passAdmin&id=<?= $user->identifier ?>">Passer ADMIN</a></strong> | 
-                <strong><a href="index.php?action=passUser&id=<?= $user->identifier ?>">Passer USER</a></strong>
+                <p><?=htmlspecialchars($user->pseudo)?> | <?=htmlspecialchars($user->user_role)?></p>
+                <strong><a href="index.php?action=passAdmin&id=<?=$user->identifier?>">Passer ADMIN</a></strong> |
+                <strong><a href="index.php?action=passUser&id=<?=$user->identifier?>">Passer USER</a></strong>
                 <hr class="my-4" />
             </div>
         </div>
@@ -83,7 +83,7 @@
 </article>
 
 <?php
-    }
+}
 ?>
 
 <!-- Divider-->
@@ -99,5 +99,5 @@
 </script>
 
 <?php
-require_once('vues/footer.php');
+require_once 'vues/footer.php';
 ?>

@@ -91,7 +91,6 @@ class CommentRepository
 		return $comments;
 	}
 	
-	
 	public function createComment(string $post, string $author, string $comment, string $author_id)
 	{
 		$statement = $this->connection->getConnection()->prepare(

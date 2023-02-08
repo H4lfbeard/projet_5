@@ -16,7 +16,6 @@ class User
 
 class UserRepository
 {
-	
 	public \DatabaseConnection $connection;
 
 	public function getUser(string $identifier): ?User

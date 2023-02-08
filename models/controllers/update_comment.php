@@ -1,10 +1,9 @@
 <?php
 
-require_once('lib/database.php');
-require_once('models/article.php');
-require_once('models/comment.php');
+require_once 'lib/database.php';
+require_once 'models/article.php';
+require_once 'models/comment.php';
 
-use Application\Models\Article\PostRepository;
 use Application\Models\Comment\CommentRepository;
 
 class UpdateComment
@@ -15,7 +14,7 @@ class UpdateComment
         if ($input !== null) {
             $author = null;
             $comment = null;
-            
+
             if (!empty($input['author']) && !empty($input['comment'])) {
                 $author = $input['author'];
                 $comment = $input['comment'];
@@ -27,7 +26,7 @@ class UpdateComment
             $commentRepository->connection = new DatabaseConnection();
             $identifiant = $commentRepository->getComment($identifier);
             $article_id = $identifiant->post;
-            
+
             $commentRepository = new CommentRepository();
             $commentRepository->connection = new DatabaseConnection();
             $success = $commentRepository->updateComment($identifier, $author, $comment);
@@ -46,6 +45,6 @@ class UpdateComment
             throw new \Exception("Le commentaire $identifier n'existe pas.");
         }
 
-        require('vues/update_comment.php');
+        require 'vues/update_comment.php';
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-   require_once('vues/head.php');
-   require_once('vues/navbar.php');
+require_once 'vues/head.php';
+require_once 'vues/navbar.php';
 
 ?>
 
@@ -22,7 +22,6 @@
 <main class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-
             <div class="col-md-10 col-lg-8 col-xl-6">
                 <h3>Je me connecte</h3>
                 <div class="my-5">
@@ -38,15 +37,13 @@
                         <br />
                         <div ><input type="submit" value="Me connecter" class="btn btn-primary text-uppercase" id="submitButton" /></div>
                     </form>
-                    <p><strong><a href="index.php?action=signin">Pas encore inscrit ? Cliquez ici pour vous créer un compte !</strong></p> 
+                    <p><strong><a href="index.php?action=signin">Pas encore inscrit ? Cliquez ici pour vous créer un compte !</strong></p>
                 </div>
             </div>
-
-
         </div>
     </div>
 </main>
 
 <?php
-require_once('vues/footer.php');
+require_once 'vues/footer.php';
 ?>

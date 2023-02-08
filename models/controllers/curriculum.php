@@ -1,8 +1,7 @@
 <?php
 
-function curriculum() {
+function curriculum()
+{
 
-require('vues/curriculum.php');
+    require 'vues/curriculum.php';
 }
-
-?>

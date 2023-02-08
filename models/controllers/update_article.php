@@ -1,11 +1,10 @@
 <?php
 
-require_once('lib/database.php');
-require_once('models/article.php');
-require_once('models/comment.php');
+require_once 'lib/database.php';
+require_once 'models/article.php';
+require_once 'models/comment.php';
 
 use Application\Models\Article\PostRepository;
-use Application\Models\Comment\CommentRepository;
 
 class UpdateArticle
 {
@@ -23,7 +22,7 @@ class UpdateArticle
             } else {
                 throw new \Exception('Les données du formulaire sont invalides.');
             }
-            
+
             $postRepository = new PostRepository();
             $postRepository->connection = new DatabaseConnection();
             $success = $postRepository->updateArticle($title, $hat, $content, $identifier);
@@ -42,6 +41,6 @@ class UpdateArticle
             throw new \Exception("Le commentaire $identifier n'existe pas.");
         }
 
-        require('vues/update_article.php');
+        require 'vues/update_article.php';
     }
 }

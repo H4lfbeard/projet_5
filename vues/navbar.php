@@ -13,11 +13,11 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php#articles_blog">Articles</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=curriculum">Curriculum Vitae</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=contact">Contact</a></li>
-                        <?php if (isset($_SESSION['pseudo'])) {  ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=logout">Se déconnecter de <?= $_SESSION['pseudo']; ?></a></li>                        
-                        <?php } else {  ?>
+                        <?php if (isset($_SESSION['pseudo'])) {?>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=logout">Se déconnecter de <?=$_SESSION['pseudo'];?></a></li>
+                        <?php } else {?>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php?action=login">Se connecter / s'inscrire</a></li>
-                        <?php } ?>
+                        <?php }?>
                      </ul>
                 </div>
             </div>

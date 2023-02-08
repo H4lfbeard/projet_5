@@ -57,8 +57,6 @@ class PostRepository
         return $posts;
     }
 
-
-
     public function createArticle(string $title, string $hat, string $content)
 	{
 		$statement = $this->connection->getConnection()->prepare(

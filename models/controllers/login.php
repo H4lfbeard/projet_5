@@ -1,35 +1,36 @@
 <?php
 // Models/controllers/login.php
 
-require_once('lib/database.php');
-require_once('models/user.php');
+require_once 'lib/database.php';
+require_once 'models/user.php';
 
 use Application\Models\User\UserRepository;
 
-function login() {
-
-	require('vues/login.php');
- }
-
- function logUser(array $input)
+function login()
 {
-	$email = null;
+
+    require 'vues/login.php';
+}
+
+function logUser(array $input)
+{
+    $email = null;
     $password = null;
-    if (!empty($input)){
+    if (!empty($input)) {
         // Le formulaire à été envoyé
         // On vérifie que TOUS les champs requis soient remplis
         if (isset($input["email"], $input["password"]) && !empty($input['email']) && !empty($input['password'])) {
             $email = $input["email"];
             $password = $input["password"];
-            if(!filter_var($input["email"], FILTER_VALIDATE_EMAIL)) {
+            if (!filter_var($input["email"], FILTER_VALIDATE_EMAIL)) {
                 throw new Exception("Ce n'est pas un email valide");
             }
         } else {
             throw new Exception('Les informations sont trop invalides.');
         }
     }
-  
-	$userRepository = new UserRepository();
+
+    $userRepository = new UserRepository();
     $userRepository->connection = new DatabaseConnection();
     $success = $userRepository->loginUser($email, $password);
     if (!$success) {
@@ -37,5 +38,5 @@ function login() {
     } else {
         header('Location: index.php?');
     }
-    
+
 }

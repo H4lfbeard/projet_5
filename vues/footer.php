@@ -1,9 +1,9 @@
 <footer class="border-top">
             <div class="container px-4 px-lg-5">
-            <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN') {  ?>
-                <div class="bold text-center text-muted fst-bold"><a href="index.php?action=addArticle">AJOUTER UN ARTICLE</a> | 
+            <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN') {?>
+                <div class="bold text-center text-muted fst-bold"><a href="index.php?action=addArticle">AJOUTER UN ARTICLE</a> |
                 <a href="index.php?action=admin">ADMINISTRER</a></div></br>
-            <?php } ?>
+            <?php }?>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">

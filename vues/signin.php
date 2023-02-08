@@ -1,8 +1,8 @@
 <?php
 
-    require_once('vues/head.php');
-    require_once('vues/navbar.php');
-   
+require_once 'vues/head.php';
+require_once 'vues/navbar.php';
+
 ?>
 
 <!-- Page Header-->
@@ -26,12 +26,12 @@
             <div class="col-md-10 col-lg-8 col-xl-5">
                 <h3>Je m'inscris</h3>
                 <div class="my-5">
-                    
-                  
+
+
                     <form id="contactForm"  method="post" action="index.php?action=addUser">
                         <div class="form-floating">
                             <input class="form-control" id="pseudo" name="pseudo" type="text" placeholder="Enter your pseudo..."/>
-                            <label for="pseudo">Pseudo</label>    
+                            <label for="pseudo">Pseudo</label>
                         </div>
                         <div class="form-floating">
                             <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email adresse..."/>
@@ -43,14 +43,14 @@
                         </div>
                         <div class="form-floating">
                             <input class="form-control" id="password-confirm" name="password-confirm" type="password" placeholder="Enter your password..."/>
-                            <label for="password-confirm">Password confirmation</label>          
+                            <label for="password-confirm">Password confirmation</label>
                         </div>
                         <br />
                         <div ><input type="submit" value="M'inscrire" class="btn btn-primary text-uppercase" id="submitButton" /></div>
                     </form>
 
                     <p><strong><a href="index.php?action=login">Déjà inscrit ? Cliquez ici pour vous connecter !</strong></p>
-                    
+
                 </div>
             </div>
 
@@ -60,5 +60,5 @@
 </main>
 
 <?php
-require_once('vues/footer.php');
+require_once 'vues/footer.php';
 ?>

@@ -17,8 +17,7 @@ use PHPMailer\PHPMailer\SMTP;
          $name = $_POST['name'];
          $email = $_POST['email'];
          $phone = $_POST['phone'];
-         $message = $_POST['message'];
-         $to = 'tomtom.humbert@gmail.com';
+         $message = $_POST['message'];       
 
          $contact = 'Nom :' . $name . "\n" . 'Adresse email :' . $email . "\n" . 'Téléphone :' . $phone . "\n" . 'Message :' . $message;
 
@@ -31,7 +30,7 @@ use PHPMailer\PHPMailer\SMTP;
             // On configue le SMTP
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
-            $mail->Port = 465;
+            $mail->Port = 465; 
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->SMTPAuth = true;
             $mail->Username = 'tomtom.humbert@gmail.com';

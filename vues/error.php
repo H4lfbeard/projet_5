@@ -1,6 +1,6 @@
 <?php
-   require_once('vues/head.php');
-   require_once('vues/navbar.php');
+require_once 'vues/head.php';
+require_once 'vues/navbar.php';
 ?>
 
 <!-- Page Header-->
@@ -17,5 +17,5 @@
     </div>
 </header>
 <?php
-require_once('vues/footer.php');
+require_once 'vues/footer.php';
 ?>

@@ -1,7 +1,6 @@
 <?php
 
-function error() {
-require('vues/error.php');
+function error()
+{
+    require 'vues/error.php';
 }
-
-?>

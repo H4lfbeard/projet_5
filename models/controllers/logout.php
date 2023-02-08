@@ -1,10 +1,11 @@
 <?php
 // models/controllers/login.php
 
-require_once('lib/database.php');
+require_once 'lib/database.php';
 
-function logout() {
+function logout()
+{
 
-	session_destroy();
+    session_destroy();
     header('Location: index.php?');
- }
+}
