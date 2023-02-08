@@ -22,6 +22,7 @@ require_once 'models/controllers/globals.php';
 $globals = new Globals;
 
 $get = $globals->getGET();
+$post = $globals->getPOST();
 
 if (isset($get['action']) && $get['action'] !== '') {
     if ($get['action'] === 'post') {
@@ -66,8 +67,8 @@ if (isset($get['action']) && $get['action'] !== '') {
             homepage();
         }
     } elseif ($get['action'] === 'submitArticle') {
-        if (isset($_POST)) {
-            submitArticle($_POST);
+        if (isset($post)) {
+            submitArticle($post);
         } else {
             error();
         }
@@ -77,7 +78,7 @@ if (isset($get['action']) && $get['action'] !== '') {
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $input = $_POST;
+                $input = $post;
             }
             (new UpdateArticle())->execute($identifier, $input);
         } else {
@@ -98,7 +99,7 @@ if (isset($get['action']) && $get['action'] !== '') {
         if (isset($get['id']) && $get['id'] > 0) {
             $identifier = $get['id'];
             $author_id = $_SESSION['id'];
-            addComment($identifier, array_merge($_POST, ['author_id' => $author_id]));
+            addComment($identifier, array_merge($post, ['author_id' => $author_id]));
         } else {
             error();
         }
@@ -108,7 +109,7 @@ if (isset($get['action']) && $get['action'] !== '') {
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $input = $_POST;
+                $input = $post;
             }
             (new UpdateComment())->execute($identifier, $input);
         } else {
@@ -141,8 +142,8 @@ if (isset($get['action']) && $get['action'] !== '') {
     elseif ($get['action'] === 'contact') {
         contact();
     } elseif ($get['action'] === 'submitContactForm') {
-        if (isset($_POST)) {
-            submitContactForm($_POST);
+        if (isset($post)) {
+            submitContactForm($post);
         } else {
             error();
         }
@@ -157,14 +158,14 @@ if (isset($get['action']) && $get['action'] !== '') {
     } elseif ($get['action'] === 'signin') {
         signin();
     } elseif ($get['action'] === 'addUser') {
-        if (isset($_POST)) {
-            addUser($_POST);
+        if (isset($post)) {
+            addUser($post);
         } else {
             error();
         }
     } elseif ($get['action'] === 'logUser') {
-        if (isset($_POST)) {
-            logUser($_POST);
+        if (isset($post)) {
+            logUser($post);
         } else {
             error();
         }
