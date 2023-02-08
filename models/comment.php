@@ -18,7 +18,11 @@ class Comment
 
 class CommentRepository 
 {
-	
+	/**
+	 * Cette fonction permet de récupérer un commentaire
+	 *
+	 * @return void
+	 */
 	public function getComment(string $identifier): ?Comment
     {	
 		
@@ -44,7 +48,11 @@ class CommentRepository
         return $comment;
     }
 
-
+	/**
+	 * Cette fonction permet de récupérer tous les commentaires
+	 *
+	 * @return void
+	 */
 	public function getComments(string $post): array
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -68,6 +76,11 @@ class CommentRepository
 		return $comments;
 	}
 
+	/**
+	 * Cette fonction permet de récupérer les commentaires non validés
+	 *
+	 * @return void
+	 */
 	public function getAllComments(): array
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -91,6 +104,11 @@ class CommentRepository
 		return $comments;
 	}
 	
+	/**
+	 * Cette fonction permet de créer un commentaire
+	 *
+	 * @return void
+	 */
 	public function createComment(string $post, string $author, string $comment, string $author_id)
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -101,6 +119,11 @@ class CommentRepository
 		return ($affectedLines > 0);
 	}
 
+	/**
+	 * Cette fonction permet de mettre à jour un commentaire
+	 *
+	 * @return void
+	 */
 	public function updateComment(string $identifier, string $author, string $comment): bool
     {
         $statement = $this->connection->getConnection()->prepare(
@@ -111,6 +134,11 @@ class CommentRepository
         return ($affectedLines > 0);
     }
 
+	/**
+	 * Cette fonction permet de valider un commentaire
+	 *
+	 * @return void
+	 */
 	public function submitComment(string $identifier): bool
     {
         $statement = $this->connection->getConnection()->prepare(
@@ -121,6 +149,11 @@ class CommentRepository
         return ($affectedLines > 0);
     }
 
+	/**
+	 * Cette fonction permet de supprimer un commentaire
+	 *
+	 * @return void
+	 */
 	public function deleteComment(string $identifier)
     {
         $statement = $this->connection->getConnection()->prepare(

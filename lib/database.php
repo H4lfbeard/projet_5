@@ -2,7 +2,11 @@
 class DatabaseConnection
 {
 	public ?PDO $database = null;
-
+	/**
+	 * Cette fonction permet de se connecter à la BDD
+	 *
+	 * @return void
+	 */
 	public function getConnection(): PDO
 	{
     	if ($this->database === null) {

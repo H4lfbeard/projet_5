@@ -163,7 +163,6 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
             logUser($_POST);
         } else {
             error();
-            die;
         }
     } else {
         error();

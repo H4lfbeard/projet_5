@@ -18,7 +18,11 @@ class Article
 class PostRepository
 {
 	public \DatabaseConnection $connection;
-
+    /**
+	 * Cette fonction permet de récupérer les infos d'un article
+	 *
+	 * @return void
+	 */
     public function getPost(string $identifier): Article {
         
     	$statement = $this->connection->getConnection()->prepare(
@@ -37,6 +41,11 @@ class PostRepository
         return $post;
     }
 
+    /**
+	 * Cette fonction permet de récupérer les infos de tous les articles
+	 *
+	 * @return void
+	 */
     public function getPosts(): array {
        
         $statement = $this->connection->getConnection()->query(
@@ -56,7 +65,12 @@ class PostRepository
     
         return $posts;
     }
-
+    
+    /**
+	 * Cette fonction permet de créer un article
+	 *
+	 * @return void
+	 */
     public function createArticle(string $title, string $hat, string $content)
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -66,7 +80,12 @@ class PostRepository
 	
 		return ($affectedLines > 0);
 	}
-
+    
+    /**
+	 * Cette fonction permet de mettre à jour les infos d'un article
+	 *
+	 * @return void
+	 */
 	public function updateArticle(string $title, string $hat, string $content, $identifier): bool
     {
         $statement = $this->connection->getConnection()->prepare(
@@ -77,6 +96,11 @@ class PostRepository
         return ($affectedLines > 0);
     }
 
+    /**
+	 * Cette fonction permet de supprimer un article
+	 *
+	 * @return void
+	 */
 	public function deleteArticle(string $identifier)
     {
         $statement = $this->connection->getConnection()->prepare(
