@@ -1,8 +1,8 @@
 <?php
 
-require_once('vues/phpmailer/Exception.php');
-require_once('vues/phpmailer/PHPMailer.php');
-require_once('vues/phpmailer/SMTP.php');
+require_once 'vues/phpmailer/Exception.php';
+require_once 'vues/phpmailer/PHPMailer.php';
+require_once 'vues/phpmailer/SMTP.php';
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;

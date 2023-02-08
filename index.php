@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once 'models/controllers/homepage.php';
 require_once 'models/controllers/admin_page.php';
 require_once 'models/controllers/administrate_user.php';
@@ -18,11 +17,16 @@ require_once 'models/controllers/add_article.php';
 require_once 'models/controllers/update_article.php';
 require_once 'models/controllers/delete_article.php';
 require_once 'models/controllers/error.php';
+require_once 'models/controllers/globals.php';
 
-if (isset($_GET['action']) && $_GET['action'] !== '') {
-    if ($_GET['action'] === 'post') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+$globals = new Globals;
+
+$get = $globals->getGET();
+
+if (isset($get['action']) && $get['action'] !== '') {
+    if ($get['action'] === 'post') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             post($identifier);
         } else {
             error();
@@ -31,22 +35,22 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 
     // ACTIONS ABOUT ADMIN PAGE ARE HERE
 
-    elseif ($_GET['action'] === 'admin') {
+    elseif ($get['action'] === 'admin') {
         if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN') {
             admin();
         } else {
             homepage();
         }
-    } elseif ($_GET['action'] === 'passAdmin') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    } elseif ($get['action'] === 'passAdmin') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             (new PassAdmin())->execute($identifier);
         } else {
             throw new Exception('Impossible de passer en Admin');
         }
-    } elseif ($_GET['action'] === 'passUser') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    } elseif ($get['action'] === 'passUser') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             (new PassUser())->execute($identifier);
         } else {
             throw new Exception('Impossible de passer en Admin');
@@ -55,21 +59,21 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 
     // ACTIONS ABOUT ARTICLES ARE HERE
 
-    elseif ($_GET['action'] === 'addArticle') {
+    elseif ($get['action'] === 'addArticle') {
         if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN') {
             addArticle();
         } else {
             homepage();
         }
-    } elseif ($_GET['action'] === 'submitArticle') {
+    } elseif ($get['action'] === 'submitArticle') {
         if (isset($_POST)) {
             submitArticle($_POST);
         } else {
             error();
         }
-    } elseif ($_GET['action'] === 'updateArticle') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    } elseif ($get['action'] === 'updateArticle') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -79,9 +83,9 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         } else {
             throw new Exception('Aucun identifiant d\'article envoyé');
         }
-    } elseif ($_GET['action'] === 'deleteArticle') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    } elseif ($get['action'] === 'deleteArticle') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             deleteArticle($identifier);
         } else {
             error();
@@ -90,17 +94,17 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 
     // ACTIONS ABOUT COMMENTS ARE HERE
 
-    elseif ($_GET['action'] === 'addComment') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    elseif ($get['action'] === 'addComment') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             $author_id = $_SESSION['id'];
             addComment($identifier, array_merge($_POST, ['author_id' => $author_id]));
         } else {
             error();
         }
-    } elseif ($_GET['action'] === 'updateComment') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    } elseif ($get['action'] === 'updateComment') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             // It sets the input only when the HTTP method is POST (ie. the form is submitted).
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -110,16 +114,16 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         } else {
             throw new Exception('Aucun identifiant de commentaire envoyé');
         }
-    } elseif ($_GET['action'] === 'submitComment') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    } elseif ($get['action'] === 'submitComment') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             (new SubmitComment())->execute($identifier);
         } else {
             throw new Exception('Impossible de valider le commentaire');
         }
-    } elseif ($_GET['action'] === 'deleteComment') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $identifier = $_GET['id'];
+    } elseif ($get['action'] === 'deleteComment') {
+        if (isset($get['id']) && $get['id'] > 0) {
+            $identifier = $get['id'];
             deleteComment($identifier);
         } else {
             error();
@@ -128,15 +132,15 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 
     // ACTIONS ABOUT CURRICULUM VITAE PAGE ARE HERE
 
-    elseif ($_GET['action'] === 'curriculum') {
+    elseif ($get['action'] === 'curriculum') {
         curriculum();
     }
 
     // ACTIONS ABOUT CONTACT PAGE ARE HERE
 
-    elseif ($_GET['action'] === 'contact') {
+    elseif ($get['action'] === 'contact') {
         contact();
-    } elseif ($_GET['action'] === 'submitContactForm') {
+    } elseif ($get['action'] === 'submitContactForm') {
         if (isset($_POST)) {
             submitContactForm($_POST);
         } else {
@@ -146,19 +150,19 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 
     // ACTIONS ABOUT USERS ARE HERE
 
-    elseif ($_GET['action'] === 'login') {
+    elseif ($get['action'] === 'login') {
         login();
-    } elseif ($_GET['action'] === 'logout') {
+    } elseif ($get['action'] === 'logout') {
         logout();
-    } elseif ($_GET['action'] === 'signin') {
+    } elseif ($get['action'] === 'signin') {
         signin();
-    } elseif ($_GET['action'] === 'addUser') {
+    } elseif ($get['action'] === 'addUser') {
         if (isset($_POST)) {
             addUser($_POST);
         } else {
             error();
         }
-    } elseif ($_GET['action'] === 'logUser') {
+    } elseif ($get['action'] === 'logUser') {
         if (isset($_POST)) {
             logUser($_POST);
         } else {

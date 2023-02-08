@@ -2,7 +2,7 @@
 
 namespace Application\Models\Comment;
 
-require_once('lib/database.php');
+require_once 'lib/database.php';
 
 use Application\Lib\Database\DatabaseConnection;
 
