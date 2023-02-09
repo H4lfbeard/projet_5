@@ -7,6 +7,11 @@ require_once 'models/comment.php';
 
 use Application\Models\Comment\CommentRepository;
 
+/**
+ * Fonction qui permet de supprimer un commentaire
+ *
+ * @return void
+ */
 function deleteComment(string $identifier)
 {
     $commentRepository = new CommentRepository();

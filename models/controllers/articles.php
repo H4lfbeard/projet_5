@@ -7,6 +7,11 @@ require_once 'models/comment.php';
 use Application\Models\Article\PostRepository;
 use Application\Models\Comment\CommentRepository;
 
+/**
+ * Fonction qui permet de récupérer un article et ses commentaires
+ *
+ * @return void
+ */
 function post(string $identifier)
 {
 

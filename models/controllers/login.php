@@ -6,12 +6,21 @@ require_once 'models/user.php';
 
 use Application\Models\User\UserRepository;
 
+/**
+ * Fonction qui permet d'afficher la page de connection'
+ *
+ * @return void
+ */
 function login()
 {
-
     require 'vues/login.php';
 }
 
+/**
+ * Fonction qui permet de se connecter
+ *
+ * @return void
+ */
 function logUser(array $input)
 {
     $email = null;

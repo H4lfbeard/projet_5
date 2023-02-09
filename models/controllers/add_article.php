@@ -7,12 +7,22 @@ require_once 'models/comment.php';
 
 use Application\Models\Article\PostRepository;
 
+/**
+ * Fonction qui permet d'ajouter un article
+ *
+ * @return void
+ */
 function addArticle()
 {
 
     require 'vues/add_article.php';
 }
 
+/**
+ * Fonction qui permet de soumettre un article
+ *
+ * @return void
+ */
 function submitArticle(array $input)
 {
 

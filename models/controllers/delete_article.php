@@ -7,6 +7,11 @@ require_once 'models/comment.php';
 
 use Application\Models\Article\PostRepository;
 
+/**
+ * Fonction qui permet de supprimer un article
+ *
+ * @return void
+ */
 function deleteArticle(string $identifier)
 {
     $postRepository = new PostRepository();

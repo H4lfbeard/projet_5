@@ -6,11 +6,21 @@ require_once 'models/user.php';
 
 use Application\Models\User\UserRepository;
 
+/**
+ * Fonction qui permet de s'inscrire
+ *
+ * @return void
+ */
 function signin()
 {
     require 'vues/signin.php';
 }
 
+/**
+ * Fonction qui permet d'ajouter un utilisateur
+ *
+ * @return void
+ */
 function addUser(array $input)
 {
     $pseudo = null;

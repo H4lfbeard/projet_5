@@ -8,6 +8,11 @@ use Application\Models\Article\PostRepository;
 
 class UpdateArticle
 {
+    /**
+     * Fonction qui permet de mettre à jour un commentaire
+     *
+     * @return void
+     */
     public function execute(string $identifier, ?array $input)
     {
         // It handles the form submission when there is an input.

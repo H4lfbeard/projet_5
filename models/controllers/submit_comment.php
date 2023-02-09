@@ -8,6 +8,11 @@ use Application\Models\Comment\CommentRepository;
 
 class SubmitComment
 {
+    /**
+     * Fonction qui permet de valider un commentaire
+     *
+     * @return void
+     */
     public function execute(string $identifier)
     {
         $commentRepository = new CommentRepository();

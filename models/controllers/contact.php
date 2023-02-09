@@ -13,10 +13,20 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
+   /**
+     * Fonction qui permet d'afficher la page contact
+     *
+     * @return void
+     */
    function contact() {
       require('vues/contact-vues.php');
    }
 
+   /**
+    * Fonction qui permet d'envoyer le formulaire par email
+    *
+    * @return void
+    */
    function submitContactForm(array $input) {
       if (!empty($post['name']) && !empty($post['email']) && !empty($post['phone']) && !empty($post['message'])) {
          $name = $post['name'];

@@ -9,6 +9,11 @@ require_once 'models/user.php';
 use Application\Models\Comment\CommentRepository;
 use Application\Models\User\UserRepository;
 
+/**
+ * Fonction qui permet de récupérer les articles non-validés et les utilisateurs pour les administrer
+ *
+ * @return void
+ */
 function admin()
 {
 

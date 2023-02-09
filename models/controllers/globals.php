@@ -4,7 +4,7 @@ class Globals
 {
     private $GET;
     private $POST;
-    private $SESSION;
+    private $SERVER;
 
     public function __construct()
     {

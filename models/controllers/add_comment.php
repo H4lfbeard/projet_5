@@ -7,6 +7,11 @@ require_once 'models/comment.php';
 
 use Application\Models\Comment\CommentRepository;
 
+/**
+ * Fonction qui permet d'ajouter un commentaire
+ *
+ * @return void
+ */
 function addComment(string $post, array $input)
 {
     $author = null;

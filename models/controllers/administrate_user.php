@@ -8,6 +8,11 @@ use Application\Models\User\UserRepository;
 
 class PassAdmin
 {
+    /**
+     * Fonction qui permet de passer un User en Admin
+     *
+     * @return void
+     */
     public function execute(string $identifier)
     {
         $userRepository = new UserRepository();
@@ -29,6 +34,11 @@ class PassAdmin
 
 class PassUser
 {
+    /**
+     * Fonction qui permet de passer un Admin en User
+     *
+     * @return void
+     */
     public function execute(string $identifier)
     {
         $userRepository = new UserRepository();
