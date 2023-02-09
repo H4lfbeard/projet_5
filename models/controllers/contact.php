@@ -1,38 +1,23 @@
 <?php
 
-require_once 'vues/phpmailer/Exception.php';
-require_once 'vues/phpmailer/PHPMailer.php';
-require_once 'vues/phpmailer/SMTP.php';
-require_once 'models/controllers/globals.php';
-
-$globals = new Globals;
-
-$post = $globals->getPOST();
+require_once('vues/phpmailer/Exception.php');
+require_once('vues/phpmailer/PHPMailer.php');
+require_once('vues/phpmailer/SMTP.php');
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-   /**
-     * Fonction qui permet d'afficher la page contact
-     *
-     * @return void
-     */
    function contact() {
       require('vues/contact-vues.php');
    }
 
-   /**
-    * Fonction qui permet d'envoyer le formulaire par email
-    *
-    * @return void
-    */
    function submitContactForm(array $input) {
-      if (!empty($post['name']) && !empty($post['email']) && !empty($post['phone']) && !empty($post['message'])) {
-         $name = $post['name'];
-         $email = $post['email'];
-         $phone = $post['phone'];
-         $message = $post['message'];       
+      if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['message'])) {
+         $name = $_POST['name'];
+         $email = $_POST['email'];
+         $phone = $_POST['phone'];
+         $message = $_POST['message'];       
 
          $contact = 'Nom :' . $name . "\n" . 'Adresse email :' . $email . "\n" . 'Téléphone :' . $phone . "\n" . 'Message :' . $message;
 
@@ -69,11 +54,11 @@ use PHPMailer\PHPMailer\SMTP;
 
          }catch(Exception){
             throw new Exception("Message non envoyé. Erreur: {$mail->ErrorInfo}");
-            return;
          }
 
-     } 
+     } else {
          error();
+     }
    }
 
 ?>
