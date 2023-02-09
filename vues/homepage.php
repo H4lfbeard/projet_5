@@ -29,13 +29,13 @@ foreach ($posts as $post) {
                <!-- Post preview-->
                <div class="post-preview">
                   <a href="index.php?action=post&id=<?=urlencode($post->identifier)?>">
-                        <h2 class="post-title"><?=htmlspecialchars($post->title)?></h2>
-                        <h3 class="post-subtitle"><?=htmlspecialchars($post->hat)?></h3>
+                        <h2 class="post-title"><?=htmlentities($post->title)?></h2>
+                        <h3 class="post-subtitle"><?=htmlentities($post->hat)?></h3>
                   </a>
                   <p class="post-meta">
                         Posted by
                         <a href="#">Thomas HUMBERT</a>
-                        le <?=$post->CreationDate?>
+                        le <?=htmlentities($post->CreationDate)?>
                   </p>
                </div>
                <!-- Divider-->
