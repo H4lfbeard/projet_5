@@ -36,9 +36,9 @@ foreach ($comments as $comment) {
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p><?=htmlspecialchars($comment->comment)?></p>
+                <p><?=htmlentities($comment->comment)?></p>
                 <span class="meta">
-                    Posted by <a href="#"><strong><?=htmlspecialchars($comment->author)?></strong></a></br>
+                    Posted by <a href="#"><strong><?=htmlentities($comment->author)?></strong></a></br>
                     le <?=$comment->CreationDate?></br>
                 </span>
                 <strong style="color:#fff;"><a href="index.php?action=submitComment&id=<?=$comment->identifier?>">Valider</a></strong> |
@@ -73,7 +73,7 @@ foreach ($users as $user) {
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p><?=htmlspecialchars($user->pseudo)?> | <?=htmlspecialchars($user->user_role)?></p>
+                <p><?=htmlentities($user->pseudo)?> | <?=htmlentities($user->user_role)?></p>
                 <strong><a href="index.php?action=passAdmin&id=<?=$user->identifier?>">Passer ADMIN</a></strong> |
                 <strong><a href="index.php?action=passUser&id=<?=$user->identifier?>">Passer USER</a></strong>
                 <hr class="my-4" />

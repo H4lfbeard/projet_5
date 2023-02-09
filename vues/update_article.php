@@ -36,15 +36,15 @@ require_once 'vues/navbar.php';
                 <div class="my-5">
                     <form action="index.php?action=updateArticle&id=<?=$post->identifier?>" method="post">
                         <div class="form-floating">
-                            <input class="form-control" id="title" name="title" type="text" value='<?=($post->title)?>' />
+                            <input class="form-control" id="title" name="title" type="text" value='<?=htmlentities($post->title)?>' />
                             <label for="author">Titre</label>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" id="hat" name="hat" style="height: 12rem" ><?=($post->hat)?></textarea>
+                            <textarea class="form-control" id="hat" name="hat" style="height: 12rem" ><?=htmlentities($post->hat)?></textarea>
                             <label for="hat">Chapô</label>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" id="content" name="content" style="height: 12rem" ><?=($post->content)?></textarea>
+                            <textarea class="form-control" id="content" name="content" style="height: 12rem" ><?=htmlentities($post->content)?></textarea>
                             <label for="content">Contenu</label>
                         </div>
                         <br />

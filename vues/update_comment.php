@@ -41,7 +41,7 @@ require_once 'vues/navbar.php';
                             <label for="author">Nom</label>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" id="comment" name="comment" style="height: 12rem" ><?=($comment->comment)?></textarea>
+                            <textarea class="form-control" id="comment" name="comment" style="height: 12rem" ><?=htmlentities($comment->comment)?></textarea>
                             <label for="comment">Commentaire</label>
                         </div>
                         <br />

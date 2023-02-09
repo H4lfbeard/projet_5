@@ -9,8 +9,8 @@ require_once 'vues/navbar.php';
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
-                    <h1><?=htmlspecialchars($post->title)?></h1>
-                    <h2 class="subheading"><?=htmlspecialchars($post->hat)?></h2></h2>
+                    <h1><?=htmlentities($post->title)?></h1>
+                    <h2 class="subheading"><?=htmlentities($post->hat)?></h2></h2>
                     <span class="meta">
                         Posted by
                         <a href="#">Thomas HUMBERT</a>
@@ -28,7 +28,7 @@ require_once 'vues/navbar.php';
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p><?=htmlspecialchars($post->content)?></p>
+                <p><?=htmlentities($post->content)?></p>
             </div>
             <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN') {?>
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -60,9 +60,9 @@ foreach ($comments as $comment) {
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p><?=htmlspecialchars($comment->comment)?></p>
+                <p><?=htmlentities($comment->comment)?></p>
                 <span class="meta">
-                    Posted by <a href="#"><strong><?=htmlspecialchars($comment->author)?></strong></a></br>
+                    Posted by <a href="#"><strong><?=htmlentities($comment->author)?></strong></a></br>
                     le <?=$comment->CreationDate?></br>
                     <?php if (isset($_SESSION['pseudo']) && ($_SESSION['id']) === ($comment->author_id)) {?>
                     <strong style="color:#fff;"><a href="index.php?action=updateComment&id=<?=$comment->identifier?>">Modifier</a></strong> |
