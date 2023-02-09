@@ -23,7 +23,7 @@ function deleteArticle(string $identifier)
     $success = $postRepository->deleteArticle($identifier);
     if (!$success) {
         throw new Exception('Impossible de supprimer l\'article !');
-        return;
+    } else {
+        header('Location: index.php?action');
     }
-    header('Location: index.php?action');
 }

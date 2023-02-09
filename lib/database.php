@@ -9,8 +9,6 @@ class DatabaseConnection
 	 *
 	 * @return void
 	 */
-
-
 	public function getConnection(): PDO
 
 	{

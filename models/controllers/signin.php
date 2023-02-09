@@ -33,9 +33,9 @@ function addUser(array $input)
             $pseudo = $input['pseudo'];
             $email = $input['email'];
             $password = $input['password'];
-            return;
+        } else {
+            throw new Exception('Les données du formulaire sont invalides.');
         }
-        throw new Exception('Les données du formulaire sont invalides.');
 
         if (($input["password"] === $input["password-confirm"])) {
             // Le formulaire est complet
@@ -48,9 +48,10 @@ function addUser(array $input)
 
             //On va hasher le mot de passe
             $password = password_hash($input["password"], PASSWORD_ARGON2ID);
-            return;
+
+        } else {
+            throw new Exception("Les deux mot de passe ne sont pas similaire");
         }
-        throw new Exception("Les deux mot de passe ne sont pas similaire");
     }
 
     $userRepository = new UserRepository();
@@ -58,7 +59,8 @@ function addUser(array $input)
     $success = $userRepository->createUser($pseudo, $email, $password);
     if (!$success) {
         throw new Exception('Impossible de créer un nouveau compte !');
-        return;
+
+    } else {
+        header('Location: index.php?');
     }
-    header('Location: index.php?');
 }

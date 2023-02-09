@@ -33,16 +33,16 @@ function submitArticle(array $input)
         $title = $input['title'];
         $hat = $input['hat'];
         $content = $input['content'];
-        return;
+    } else {
+        throw new Exception('Les informations de l\'article sont invalides.');
     }
-    throw new Exception('Les informations de l\'article sont invalides.');
 
     $postRepository = new PostRepository();
     $postRepository->connection = new DatabaseConnection();
     $success = $postRepository->createArticle($title, $hat, $content);
     if (!$success) {
         throw new Exception('Impossible d\'ajouter l\'article !');
-        return;
+    } else {
+        header('Location: index.php?action#article_blog');
     }
-    header('Location: index.php?action#article_blog');
 }
