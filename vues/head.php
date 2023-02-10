@@ -14,5 +14,4 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://cdn.tiny.cloud/1/s6mp52so2cvu4oom3oxm1986plvzeov2njimf3p8fzqrbu8v/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     </head>

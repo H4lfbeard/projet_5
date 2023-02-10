@@ -27,11 +27,11 @@ require_once 'vues/navbar.php';
                 <div class="my-5">
                     <form id="contactForm"  method="post" action="index.php?action=logUser">
                         <div class="form-floating">
-                            <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email adresse..."/>
+                            <input class="form-control" id="email" name="email" type="email" required placeholder="Enter your email adresse..."/>
                             <label for="email">Email Adress</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="password" name="password" type="password" placeholder="Enter your password..."/>
+                            <input class="form-control" id="password" name="password" type="password" required placeholder="Enter your password..."/>
                             <label for="password">Password</label>
                         </div>
                         <br />

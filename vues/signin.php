@@ -30,19 +30,19 @@ require_once 'vues/navbar.php';
 
                     <form id="contactForm"  method="post" action="index.php?action=addUser">
                         <div class="form-floating">
-                            <input class="form-control" id="pseudo" name="pseudo" type="text" placeholder="Enter your pseudo..."/>
+                            <input class="form-control" id="pseudo" name="pseudo" type="text" required placeholder="Enter your pseudo..."/>
                             <label for="pseudo">Pseudo</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email adresse..."/>
+                            <input class="form-control" id="email" name="email" type="email" required placeholder="Enter your email adresse..."/>
                             <label for="email">Email Adress</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="password" name="password" type="password" placeholder="Enter your pseudo..."/>
+                            <input class="form-control" id="password" name="password" type="password" required placeholder="Enter your pseudo..."/>
                             <label for="password">Password</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="password-confirm" name="password-confirm" type="password" placeholder="Enter your password..."/>
+                            <input class="form-control" id="password-confirm" name="password-confirm" type="password" required placeholder="Enter your password..."/>
                             <label for="password-confirm">Password confirmation</label>
                         </div>
                         <br />
