@@ -20,10 +20,8 @@ class UserRepository
 
 	public function getUser(string $identifier): ?User
     {	
-		
         $statement = $this->connection->getConnection()->prepare(
             "SELECT id, pseudo, email, user_role FROM users WHERE id = ?"
-			
         );
         $statement->execute([$identifier]);
 
@@ -59,7 +57,6 @@ class UserRepository
 	
 			$users[] = $user;
 		}
-	
 		return $users;
 	}
 
@@ -67,7 +64,6 @@ class UserRepository
 	{
 		$statement = $this->connection->getConnection()->prepare(
 			"SELECT id, pseudo, user_role FROM users ORDER BY user_role"
-
 		);
 		$statement->execute();
 		$users = [];
@@ -79,7 +75,6 @@ class UserRepository
 	
 			$users[] = $user;
 		}
-	
 		return $users;
 	}
 	
@@ -129,8 +124,7 @@ class UserRepository
 		$statement->bindValue(":email", $email);
 		$statement->execute();
 		$user = $statement->fetch();
-		if ($user) {
-			
+		if ($user) {	
 			if (password_verify($_POST["password"], $user["password"])) {
 				session_start();
 				$_SESSION['pseudo'] = $user["pseudo"];
@@ -145,6 +139,5 @@ class UserRepository
 		}
 		$statement->close();
 	}
-
 }
 
