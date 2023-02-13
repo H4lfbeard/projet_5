@@ -40,7 +40,7 @@ use PHPMailer\PHPMailer\SMTP;
             $mail->Charset ="utf-8";
 
             //Destinataire
-            $mail->addAddress("tomtom.humbert@gmail.com");
+            $mail->addAddress("humbert.thomas.pro@gmail.com");
             
             $mail->setFrom($email);
 
